@@ -1,0 +1,15 @@
+{
+  "name": "ping-pong",
+  "description": "Ein Javascript Ping-Pong Spiel für die Develop<her> session",
+  "main": "src/index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/medcross/ping-pong",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

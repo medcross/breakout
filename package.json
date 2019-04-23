@@ -4,7 +4,7 @@
   "description": "Ein Javascript Ping-Pong Spiel für die Develop<her> session",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -c-1"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
     "url": "https://github.com/medcross/ping-pong/issues"
   },
   "homepage": "https://github.com/medcross/ping-pong#readme",
-  "dependencies": {
-    "phaser": "^3.16.2"
+  "devDependencies": {
+    "bower": "^1.8.8",
+    "http-server": "^0.11.1"
   }
 }

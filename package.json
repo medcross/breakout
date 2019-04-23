@@ -1,0 +1,22 @@
+{
+  "name": "ping-pong",
+  "version": "1.0.0",
+  "description": "Ein Javascript Ping-Pong Spiel für die Develop<her> session",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medcross/ping-pong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medcross/ping-pong/issues"
+  },
+  "homepage": "https://github.com/medcross/ping-pong#readme",
+  "dependencies": {
+    "phaser": "^3.16.2"
+  }
+}

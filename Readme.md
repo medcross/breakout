@@ -1,6 +1,6 @@
 ## Ping-Pong
 
-In diesem Projekt wirst du ein Ping-Pong Spiel entwickeln.
+In diesem Projekt wirst du ein Pong-Spiel mit dem [Phaser-Framework](http://labs.phaser.io/) entwickeln.
 
 # Installation
 

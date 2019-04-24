@@ -9,8 +9,7 @@ window.onload = () => {
             preload: preload,
             create: create,
             update: update
-        },
-        backgroundColor: "#18216D",
+        }
     };
 
     // Das Spiel wird zum Leben erwerkt.

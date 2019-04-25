@@ -28,8 +28,16 @@ function sayHello() {
 
 *Im Beispiel sind Textanmerkungen zu erkennen. In Javascript kann man seinen Code mit Hilfe von Anmerkungen dokumentieren. Dabei wird zwischen dem **mehrzeiligen Blockkommentar ( \*/ ... \*/ )** und dem **einzeiligen Kommentar ( // ... )** unterschieden.*
 
-Alle Texturen befinden sich zusammengefasst in einem Atlas, welcher das Laden vereinfacht. Ein Texturatlas umfasst mehrere, aneinandergereihte Bildtexturen.
+Alle Texturen befinden sich zusammengefasst in einem Atlas, welcher das Laden vereinfacht. Ein Texturatlas umfasst mehrere, aneinandergereihte Bildtexturen. Um Phase zu sagen, wie die Bilder aneinandergereiht sind, ist eine Datei vom Typ JSON hinterlegt. Das JSON enthält alle benötigten Informationen.
 
 Innerhalb der Funktion, in welcher der Texturatlas geladen werden soll, müssen Parameter angegeben werden.
 
-**Tipp:** Verwende die Funktion `this.load.atlas()`
+### Aufgabe
+
+Verwende die Methode `this.load.atlas()` zum Laden des Texurtatlasses. Der Atlas befindet sich im Verzeichnis `assets/atlas.png` zusmmane mit der entsprechenden JSON-Definintion `assets/atlas.json`.
+
+Die Methode ist [hier](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#atlas__anchor) dokumentiert. Optionale Parameter, die du auslassen kannst, sind in der Dokumentation in ekigen Klammern `[...]` hinterlegt.
+
+*`textureXhrSettings` und `atlasXhrSettings` sind optional und zudem fortgeschrittene Parameter, die du auslassen kannst.*
+
+**Der Parameter Key** kann beliebig benannt werden. Der Key wird benutzt, um der Ressource einen Namen zu geben. Unter dem Namen kann auf diese später wieder zugegriffen werden. **Es macht also Sinn, den Key des Atlas als Konstante abzuspeichern.**

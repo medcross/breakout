@@ -1,6 +1,6 @@
 # Breakout 2D Game - Javascript Session
 
-In diesem Projekt wirst du ein 2d Breakout-Spiel mit dem [Phaser-Framework](http://labs.phaser.io/) entwickeln.
+In diesem Projekt wirst du ein 2d Breakout-Spiel mit dem [Phaser-Framework](https://photonstorm.github.io/phaser3-docs/) entwickeln.
 
 ## Projektstruktur
 

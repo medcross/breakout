@@ -105,7 +105,13 @@ Ein **Objekt** umfasst mehrere **Eigenschaften**. Eine Eigenschaft ist, ähnlich
 
 Ein Objekt wird mit dem Schlüsselwort `new` erstellt und wird z.B. einer Konstanten zugewisen. Dabei kann es bei der Erstellung Parameter annehmen (einzelne Werte). Mit Parametern kann man unterschiedliche Ausführungen eines Objektes erstellen.
 
-Beim Erstellen eines Objekts wird der **Konstruktor** aufgerufen.
+Beim Erstellen eines Objekts wird der **Konstruktor einer Klasse** aufgerufen.
+
+Eine **Klasse** definiert die Eigenschaften eines **Objekts**. Sie ist die Definition einer Vorlage von **Variablen** und **Methoden** eines Objekts.
+
+*Zusammenfassend definiert die Klasse Eigenschaften eines Objekts. Methoden sind Funktionen, die zu einer bestimmten Klasse gehören. Wenn man eine Klasse mit `new` erstellt, so entsteht ein Objekt. Auf das Objekt kann zur Laufzeit des Programms zugegriffen werden.*
+
+*Da du in der Session keine eigenen Klassen programmieren musst, reicht es zu wissen, wie du eine Instanz der Klasse, das Objekt, erstellen kannst.*
 
 **Beispiel für das Erstellen eines Objekts:**
 
@@ -127,8 +133,6 @@ const config = {
 const vw = new Auto(config);
 ```
 
-*Da du in der Session kein eigenes Objekt erstellen musst, reicht es zu wissen, wie du mit ihnen arbeiten kannst.*
-
 ### Aufgabe
 
 Erstelle ein Objekt vom Typ `Phaser.Game` und übergebe die Konstante `config` in den Konstruktor.
@@ -140,5 +144,7 @@ Du kannst das erstellte Objekt ebenfalls in einer Konstante speichern. Z.b. eine
 Öffne doch mal die `index.html` in einem Web-Browser deiner Wahl.
 
 Wenn du alles richtig gemacht hast, solltest du einen hellblauen Kasten sehen.
+
+## Nächste Aufgabe
 
 [Hier](Aufgabe2.md) kommst du zur nächsten Aufgabe.

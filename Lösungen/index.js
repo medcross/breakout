@@ -40,6 +40,10 @@ function create() {
 
     this.paddle = this.physics.add.image(400, 500, atlasKey, "paddle1");
 
+    this.ball = this.physics.add.image(gameWidth / 2, gameHeight / 2, atlasKey, "ball1")
+    this.ball.setCollideWorldBounds(true);
+    this.ball.setBounce(1);
+
     for (let j = 0; j < numberOfRows; j++) {
         for (let i = 0; i < bricksPerRow; i++) {
             this.physics.add.image(bricksXOffset + i * brickWidth, bricksYOffset + j * brickHeight, atlasKey, "blue1");

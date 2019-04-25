@@ -6,7 +6,7 @@ In der ersten Aufgabe musst du das Spielfeld konfigurieren.
 
 Bei der Konfiguation handelt es sich meist um einen Schritt, welcher einmalig zum Laden des Spiels vorgenommen wird. Es beinhaltet u.a. das Setzen der Höhe und Breite des Spielfeldes. (Wir ändern die Größe des Spielfeldes im Laufe des Spiels nicht mehr ab)
 
-Häufig greift man auf manche Werte zu einem späteren Zeitpunkt zurück, ändert diese aber nicht mehr. Aus diesem Grund speichert man diese als **Konstante** ab. Ein Beispiel für eine Konstante ist in unserem Fall nicht nur die Höhe und Breite des Spielfelds, sondern es könnte auch die Kreizahl pi sein.
+Häufig greift man auf manche Werte zu einem späteren Zeitpunkt zurück, ändert diese aber nicht mehr. Die kann beispielsweise für eine Berechnung sein. Aus diesem Grund speichert man diese als **Konstante** ab. Ein Beispiel für eine Konstante ist in unserem Fall nicht nur die Höhe und Breite des Spielfelds, sondern es könnte auch die Kreizahl pi sein.
 
 In Javascript werden **Konstanten** mit dem Schlüsselwort `const` gekennzeichnet. Eine Konstante hat immer einen Namen, über welchen sie angesprochen werden kann.
 
@@ -21,9 +21,9 @@ const ersterWochentag = "Montag"; // Zeichenfolge
 const wahr = true; // Boolscher Wert (wahr / falsch)
 const falsch = false // Boolscher Wert (wahr / falsch)
 ```
-Aus den Beispielen fällt auf, dass **Werte unterschiedlicher Typen** gespeichert werden können.
+Aus den Beispielen fällt auf, dass **Werte unterschiedlicher Typen** zwischengespeichert werden können.
 
-Es können ebenfalls mehrere Werte zusammengefasst werden. Diese Art von Typ nennt man **JSON (Javascript Object Notation)**. JSONs können natürlich auch u.a. in Konstanten gespeichert werden:
+Es können ebenfalls mehrere Werte zusammengefasst werden. Diese Art von Typ nennt man **JSON (Javascript Object Notation)**. Ein JSON zeichnet sich durch eine öffnende geschweifte Klammer `{` und eine schließende geschweifte Klammer `}` aus. Das JSON selbst enthält Wertepaare, welche mit einem `,` abgetrennt werden.
 
 ```javascript
 const config = {
@@ -31,6 +31,15 @@ const config = {
     height: 600,
 };
 ```
+
+Der Zugriff auf einen Wert ist sehr einfacht und erfolgt über Punktnotation:
+
+```javascript
+console.log("Die Breite des Spielfelds ist:");
+console.log(config.width);
+```
+
+*`console.log` gibt einen Text auf der Konsole des Webbrowsers aus.*
 
 Ein JSON kann auch ein weiteres JSON beinhalten und komplexer sein:
 
@@ -43,6 +52,9 @@ const simone = {
         bezeichnung: "Entwicklerin"
     }
 };
+
+console.log("Simones Berufsbezeichnung lautet:");
+console.log("")
 ```
 
 ### Aufgabe
@@ -56,7 +68,7 @@ Ein Gültigkeitsbereich wird durch einen **Block** defiiniert. Ein Block kennzei
 ```javascript
 const wert0 = 0;
 
-window.onload = () => { // <- Anfang Block 1
+{ // <- Anfang Block 1
 
     const wert1 = 1;
 
@@ -81,7 +93,49 @@ Das Spielfeld soll nun ein schönes Himmelblau bekommen.
 
 Füge den Wert `backgroundColor` zur Konstanten `config` hinzu und setze disen auf den Wert `"#0088ff"`. Der Wert ist als Zeichenfolge angegeben und hinter ihm verbirgt sich **ein Farbcode**. Solche Farbcodes werden besonders häufig in der Webentwicklung verwendet.
 
-## Schritt 3 - Erster Test
+## Schritt 3 - Das Spiel zum Leben erwecken
+
+Momentan siehst du nur die Konstante `config` im Code stehen und ein paar `function`s, die im Moment jedoch noch nicht relevant sind.
+
+Allerdings wird sich noch nicht viel tun, da wir das Spielfeld noch nicht erstellt haben.
+
+Du musst Phaser sagen, dass es das Spiel anhan der zuvor angelegten `config` erstellen soll. Dafür musst du **ein Objekt erzeugen**.
+
+Ein **Objekt** umfasst mehrere **Eigenschaften**. Eine Eigenschaft ist, ähnlich wie die Konstante, eine Verbindung von einem Namen und einem Wert. Außerdem kann eine Eigenschaft eine Funktion sein. Diese wird aufgrund der Bindung an das Objekt als **Methode** spezifiziert.
+
+Ein Objekt wird mit dem Schlüsselwort `new` erstellt und wird z.B. einer Konstanten zugewisen. Dabei kann es bei der Erstellung Parameter annehmen (einzelne Werte). Mit Parametern kann man unterschiedliche Ausführungen eines Objektes erstellen.
+
+Beim Erstellen eines Objekts wird der **Konstruktor** aufgerufen.
+
+**Beispiel für das Erstellen eines Objekts:**
+
+```javascript
+// Ein VW, welcher 19999.99 EUR kostet, wird erstellt.
+const vw = new Auto("VW", 19999.99);
+// Auch ein Auto, jedoch von der Marke Fiat mit einem anderen Verkaufspreis.
+const fiat = new Auto("Fiat", 5999.99);
+```
+
+**Der Konstruktor kann auch mit einem JSON umgesetzt werden:**
+
+```javascript
+const config = {
+    marke: "VW",
+    verkaufspreis: 19999.99
+};
+
+const vw = new Auto(config);
+```
+
+*Da du in der Session kein eigenes Objekt erstellen musst, reicht es zu wissen, wie du mit ihnen arbeiten kannst.*
+
+### Aufgabe
+
+Erstelle ein Objekt vom Typ `Phaser.Game` und übergebe die Konstante `config` in den Konstruktor.
+
+Du kannst das erstellte Objekt ebenfalls in einer Konstante speichern. Z.b. einer Konstante mit dem Namen `game`.
+
+## Schritt 4 - Erster Test
 
 Öffne doch mal die `index.html` in einem Web-Browser deiner Wahl.
 

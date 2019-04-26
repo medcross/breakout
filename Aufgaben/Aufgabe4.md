@@ -73,10 +73,10 @@ Außerdem soll der Ball von dem Schläger abprallen.
 Nutze hierfür die folgende Methode ([Link zur Dokumentation](https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.Factory.html)):
 
 ```javascript
-this.physics.add.collider(this.ball, this.paddle, this.hitPaddle, null, this);
+this.physics.add.collider(this.ball, this.paddle, hitPaddle, null, this);
 ```
 
-`this.hitPaddle` ist eine Funktion, die beim Auftreffen des Balls auf den Schläger aufgerunfen wird. Eine solche Funktion wird auch als **Callback** bezeichnet. Ein Callback ist eine Funktion, die als Parameter in eine andere Funktion übergeben wird. Bei Bedarf kann das Callback ausgeführt werden.
+`hitPaddle` ist eine Funktion, die beim Auftreffen des Balls auf den Schläger aufgerunfen wird. Eine solche Funktion wird auch als **Callback** bezeichnet. Ein Callback ist eine Funktion, die als Parameter in eine andere Funktion übergeben wird. Bei Bedarf kann das Callback ausgeführt werden.
 
 Erstelle aus diesem Grund eine neue Funktion mit dem Namen `hitPaddle`. Die Funktion bekommt den Ball und den Schläger als Parameter übergeben:
 
@@ -123,7 +123,7 @@ for (let xj = 0; xj < numberOfRows; xj++) {
             "blue1"
         );
 
-        this.physics.add.collider(this.ball, brick, this.hitBrick, null, this);
+        this.physics.add.collider(this.ball, brick, hitBrick, null, this);
 
     }
 }
@@ -135,6 +135,28 @@ for (let xj = 0; xj < numberOfRows; xj++) {
 function hitBrick(ball, brick) {
 
 }
+```
+
+***
+</details>
+
+## Schritt 3 - Die Mauersteine dürfen sich nicht bewegen
+
+Momentan würden sich die Mauersteine noch bewegen, wenn sie vom Ball getroffen werden.
+
+Die Kraft des Balles wird dabei physikalisch auf den Mauerstein übertragen. *Wir habe schließlich die Arcade-Physikberechnung gewählt.*
+
+### Aufgabe
+
+Füge dem Mauerstein, wie dem Schläger *(Paddle)*, die `immovable` Eigenschaft hinzu.
+
+<details>
+<summary>Lösung</summary>
+
+**In der `for`-Schleife:**
+
+```javascript
+brick.setImmovable();
 ```
 
 ***

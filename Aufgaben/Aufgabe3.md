@@ -143,4 +143,4 @@ for (let xj = 0; xj < numberOfRows; xj++) {
 
 ## Nächste Aufgabe
 
-Den Ball wirst du [hier](Aufgabe4.md) zum Fliegen bringen.
+Den Ball wirst du [hier](Aufgabe4.md) einzeichen.

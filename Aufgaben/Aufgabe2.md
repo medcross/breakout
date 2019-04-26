@@ -44,6 +44,17 @@ Die Methode ist [hier](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.
 
 **Der Parameter Key** kann beliebig benannt werden. Der Key wird benutzt, um der Ressource einen Namen zu geben. Unter dem Namen kann auf diese später wieder zugegriffen werden. **Es macht also Sinn, den Key des Atlas als Konstante abzuspeichern.**
 
+<details>
+<summary>Lösung</summary>
+
+```javascript
+function preload() {
+    this.load.atlas(atlasKey, "assets/atlas.png", "assets/atlas.json");
+}
+```
+
+</details>
+
 ## Schritt 2 - Den Schläger hinzufügen
 
 Natürlich wollen wir die Bilder nun verwenden. Im ersten Schritt sollst du nun den Schläger auf das Spielfeld bringen. Der Schläger ist beim klassischen Breakout-Spiel am unteren Rand vorzufinden und kann nach links und rechts bewegt werden.
@@ -51,6 +62,8 @@ Natürlich wollen wir die Bilder nun verwenden. Im ersten Schritt sollst du nun 
 ### Aufgabe A
 
 Suche nach einem passenden Textur für den Schläger in der `atlas.json`. Der englische Begriff für Schläger ist `paddle`.
+
+**Auszug aus der `atlas.json`:**
 
 ```json
 "paddle1":
@@ -71,11 +84,33 @@ Arcade ist eine simple Physikeinstellung, bei der lediglich auf die Kollision zw
 
 Um die Klasse zu instanziieren müssen wir die Physik-Einstellungen im `config`-Objekt festlegen. Füge dem JSON daher folgende Eigenschaft hinzu:
 
-```json
+```javascript
 physics: {
     default: "arcade"
 }
 ```
+
+<details>
+<summary>Lösung</summary>
+
+```javascript
+const config = {
+    type: Phaser.AUTO,
+    width: gameWidth, 
+    height: gameHeight,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    },
+    physics: {
+        default: "arcade"
+    },
+    backgroundColor: "#31403d"
+};
+```
+
+</details>
 
 ### Aufgabe C
 
@@ -99,6 +134,32 @@ Um den Schläger mittig zu platzieren, kannst du einen mathematische Division vo
 - `/` *geteilt*
 
 Am Ende sollte der Schläger mittig, am unteren Bildrand zu sehen sein.
+
+<details>
+<summary>Tipp</summary>
+
+Du musst die Spielbreite durch zwei teilen.
+
+</details>
+
+<details>
+<summary>Lösung</summary>
+
+Die Berechnung zur x-Position des Schlägers lautet somit:
+
+**Oberhalb in der Datei definiert:**
+```javascript
+const paddleWidth = 104;
+```
+
+**Die `create`-Funktion**
+```javascript
+function create() {
+    this.physics.add.image(gameWidth / 2, paddleYPos, atlasKey, "paddle1");
+}
+```
+
+</details>
 
 ### Aufgabe D
 
@@ -152,5 +213,35 @@ function create() {
 ```
 
 *Du kannst dich für eine der beiden Varianten frei entscheiden.*
+
+## Endresultat
+
+<details>
+<summary>Lösung</summary>
+
+```javascript
+function create() {
+    this.paddle = this.physics.add.image(gameWidth / 2, paddleYPos, atlasKey, "paddle1");
+}
+```
+
+**Alternative Lösung:**
+
+```javascript
+// Deklaration über der create-Funktion
+let paddle; 
+
+function create() {
+    // Definition in der create-Funktion
+    paddle = this.physics.add.image(gameWidth / 2, paddleYPos, atlasKey, "paddle1");
+}
+```
+
+***
+</details>
+
+![Der Schläger wurde eingezeichnet](Aufgabe2.png)
+
+## Nächste Aufgabe
 
 [Hier](Aufgabe3.md) wirst du die nächsten Texturen einzeichnen.

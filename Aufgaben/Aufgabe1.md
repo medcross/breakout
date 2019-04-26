@@ -85,13 +85,53 @@ const wert0 = 0;
 
 Da Javascript-Dateien ebenfalls **von oben nach unten** eingelesen werden, gelten Variablen auch erst nach ihrer **Deklaration**.
 
+<details>
+<summary>Lösung</summary>
+
+```javascript
+const gameWidth = 800; // Breite des Spiels
+const gameHeight = 600; // Höhe des Spiels
+
+const config = {
+    type: Phaser.AUTO,
+    width: gameWidth, 
+    height: gameHeight,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+```
+
+</details>
+
 ## Schritt 2 - Hintergrundfarbe auf blau setzen
 
-Das Spielfeld soll nun ein schönes Himmelblau bekommen.
+Das Spielfeld soll nun einen schwarzgrünen Hintergrund bekommen.
 
 ### Aufgabe
 
-Füge den Wert `backgroundColor` zur Konstanten `config` hinzu und setze disen auf den Wert `"#0088ff"`. Der Wert ist als Zeichenfolge angegeben und hinter ihm verbirgt sich **ein Farbcode**. Solche Farbcodes werden besonders häufig in der Webentwicklung verwendet.
+Füge den Wert `backgroundColor` zur Konstanten `config` hinzu und setze disen auf den Wert `"#31403d"`. Der Wert ist als Zeichenfolge angegeben und hinter ihm verbirgt sich **ein Farbcode**. Solche Farbcodes werden besonders häufig in der Webentwicklung verwendet.
+
+<details>
+<summary>Lösung</summary>
+
+```javascript
+const config = {
+    type: Phaser.AUTO,
+    width: gameWidth, 
+    height: gameHeight,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    },
+    backgroundColor: "#31403d"
+};
+```
+
+</details>
 
 ## Schritt 3 - Das Spiel zum Leben erwecken
 
@@ -139,11 +179,54 @@ Erstelle ein Objekt vom Typ `Phaser.Game` und übergebe die Konstante `config` i
 
 Du kannst das erstellte Objekt ebenfalls in einer Konstante speichern. Z.b. einer Konstante mit dem Namen `game`.
 
+<details>
+<summary>Lösung</summary>
+
+```javascript
+const game = new Phaser.Game(config);
+```
+
+</details>
+
 ## Schritt 4 - Erster Test
 
 Öffne doch mal die `index.html` in einem Web-Browser deiner Wahl.
 
 Wenn du alles richtig gemacht hast, solltest du einen hellblauen Kasten sehen.
+
+<details>
+<summary>Gesamtlösung</summary>
+
+```javascript
+const gameWidth = 800; // Breite des Spiels
+const gameHeight = 600; // Höhe des Spiels
+
+// Konfiguriert das Spiel
+const config = {
+    type: Phaser.AUTO,
+    width: gameWidth, 
+    height: gameHeight,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    },
+    backgroundColor: "#31403d"
+};
+
+const game = new Phaser.Game(config);
+
+function preload() {
+}
+
+function create() {
+}
+
+function update() {
+}
+```
+
+</details>
 
 ## Nächste Aufgabe
 

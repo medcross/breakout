@@ -189,18 +189,51 @@ Wenn der Spielball verloren geht, soll ein Text `"Du hast verloren!"` erscheinen
 
 Nutze dafür die `update`-Funktion und frage die y-Position des Balls ab.
 
+Außerdem soll der Text nur einmal gezeichnet werden.
+
+Aus diesem Grund soll eine neue Variable mit `let` angelegt werden, welche aussagt, ob der Spieler verloren hat. Die Varaible könnte `lostGame` heißen.
+
+**Tipp:** Du kannst in der `if` Bedingung zwei Ausdrücke mit einem `&&` kombiniert werden.
+
+<details>
+<summary>Weiterer Tipp</summary>
+
+Prüfe in einer `if` Bedingung, ob die y-Position des Balls größer als die Spielfeldhöhe ist.
+
+<details>
+<summary>Javascript anzeigen</summary>
+
+```javascript
+if (this.ball.y > gameHeight && !lostGame) {
+```
+
+</details>
+
+***
+</details>
+
 <details>
 <summary>Lösung</summary>
 
 ```javascript
+let lostGame = false;
+
+function startGame() {
+    if (!isGameStarted) {
+        // ...
+        lostGame = false;
+    }
+}
+
 function update() {
-    if (this.ball.y > gameHeight) {
+    if (this.ball.y > gameHeight && !lostGame) {
         this.add.text(
             gameWidth / 2 - 100,
             gameHeight / 2,
             "Du hast verloren!",
             standardFont
         );
+        lostGame = true;
     }
 }
 ```

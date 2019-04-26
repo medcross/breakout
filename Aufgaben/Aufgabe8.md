@@ -4,39 +4,107 @@ Der Ball soll natürlich nicht immer in die gleiche Richtung gehen, wenn er auf 
 
 ## Schritt 1 - Berechnung des Abstands vom Ball zur Mitte der Plattform
 
-Bei Breakout gilt die Regel: *Umso schlechter der Ball getroffen wurde, umso stärker geht der Ball in x-Richtung.*
+Bei Breakout gilt die Regel: *Umso weiter außen der Ball vom Schläger getroffen wurde, umso stärker geht der Ball in x-Richtung.*
 
 Um dieses Verhalten zu Implementieren, muss der Abstand vom Ball zur Mitte der Plattform berechnet werden.
 
 ### Aufgabe
 
-Berechne den Abstand in der Callbackfunktion `hitPaddle`.
+Berechne den Abstand in der Callbackfunktion `hitPaddle` und setze die Geschwindigkeit des Balls in x-Richtung.
 
-Denke daran, dass der Abstand immer positiv sein muss.
-
-Nutze dann die Methode,
+Die Funktion zum Setzen der Geschwindigkeit *(Velocity)* lautet:
 
 ```javascript
-ball.setVelocityX(-10 * diff);
+// distance ist die zu berechnende Distanz
+ball.setVelocityX(10 * distance);
 ```
 
-um den Ball zu bewegen.
+Ist der Ball genau in der Mitte aufgekommen, verwende folgenden Ausdruck. Der Ball geht dann in eine zufällige Richtung:
 
 ```javascript
-let diff = 0;
+ball.setVelocityX(2 + Math.random() * 8);
+```
 
-if (ball.x < paddle.x)
-{
-    //  Ball is on the left-hand side of the paddle
-    diff = paddle.x - ball.x;
-    ball.setVelocityX(-10 * diff);
-} else if (ball.x > paddle.x) {
-    //  Ball is on the right-hand side of the paddle
-    diff = ball.x - paddle.x;
-    ball.setVelocityX(10 * diff);
+Denke daran, dass der Abstand immer positiv sein muss. Um dies sicherzustellen, musst du über eine `if` Bedingung prüfen, ob der Ball sich links oder rechts des Schlägers befindet.
+
+Außerdem kann es sein, dass der Ball zufällig mittig getroffen worden ist.
+
+**Es gibt also insgesamt drei Bedingungen.**
+
+Mit einem `else` kann man auf das nicht Eintreffen einer Bedingung prüfen:
+
+```javascript
+const gewonnen = false;
+
+if (gewonnen) {
+    // Die Bedingung ist nicht erfüllt
+    console.log("Du hast gewonnen!");
 } else {
-    //  Ball is perfectly in the middle
-    //  Add a little random X to stop it bouncing straight up!
-    ball.setVelocityX(2 + Math.random() * 8);
+    // Die Bedingung ist erfüllt, da die obere Bedingung falsch ist
+    console.log("Du hast verloren :-(");
 }
 ```
+
+<details>
+<summary>Tipp</summary>
+
+Der Abstand zwischen Schläger und Ball ist folgenderweise zu berechnen:
+
+```javascript
+const distance = ball.x - paddle.x;
+```
+
+***
+</details>
+
+<details>
+<summary>Lösung</summary>
+
+```javascript
+function hitPaddle(ball, paddle) {
+    const distance = ball.x- paddle.x;
+    
+    if (distance === 0) {
+        ball.setVelocityX(2 + Math.random() * 8);
+    } else {
+        ball.setVelocityX(10 * distance);
+    }
+}
+```
+
+***
+</details>
+
+## Schritt 2
+
+Wenn das Spiel noch nicht gestartet ist, bewegt sich der Ball bereits von der Plattform herunter.
+
+Dies liegt an der Implementierung der `hitPaddle` Funktion.
+
+### Aufgabe
+
+Überprüfe in der `hitPaddle` Funktion, ob das Spiel bereits gestartet worden ist.
+
+<details>
+<summary>Lösung</summary>
+
+```javascript
+function hitPaddle(ball, paddle) {
+    if (isGameStarted) {
+        const distance = ball.x - paddle.x;
+
+        if (distance === 0) {
+            ball.setVelocityX(2 + Math.random() * 8);
+        } else {
+            ball.setVelocityX(10 * distance);
+        }
+    }
+}
+```
+
+***
+</details>
+
+### Nächste Aufgabe
+
+[Hier](Aufgabe9.md) geht es zur nächsten Aufgabe.

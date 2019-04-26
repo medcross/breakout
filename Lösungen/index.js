@@ -22,6 +22,8 @@ const bricksXOffset = (gameWidth - brickWidth * bricksPerRow) / 2 + brickWidth /
 const ballHeight = 22;
 
 let isGameStarted = false;
+let lostGame = false;
+
 let remainingBricks;
 
 // Konfiguriert das Spiel
@@ -81,13 +83,14 @@ function create() {
 }
 
 function update() {
-    if (this.ball.y > gameHeight) {
+    if (this.ball.y > gameHeight && !lostGame) {
         this.add.text(
             gameWidth / 2 - 100,
             gameHeight / 2,
             "Du hast verloren!",
             standardFont
         );
+        lostGame = true;
     }
 }
 
@@ -96,6 +99,7 @@ function startGame() {
         this.ball.setVelocity(-75, -300);
         isGameStarted = true;
         remainingBricks = numberOfRows * bricksPerRow;
+        lostGame = false;
     }
 }
 
@@ -108,7 +112,15 @@ function movePaddle(pointer) {
 }
 
 function hitPaddle(ball, paddle) {
+    if (isGameStarted) {
+        const distance = ball.x - paddle.x;
 
+        if (distance === 0) {
+            ball.setVelocityX(2 + Math.random() * 8);
+        } else {
+            ball.setVelocityX(10 * distance);
+        }
+    }
 }
 
 function hitBrick(ball, brick) {

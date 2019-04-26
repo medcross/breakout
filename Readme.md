@@ -47,7 +47,7 @@ Der eigentliche Programmcode wird in die `index.js` im `src`-Verzeichnis geschri
 
 ## Im Browser bereitstellen
 
-Öffne die `index.html` in einem Web-Browser deiner Wahl. Du solltest anfangs einen schwarzen, rechteckigen Hintergrund sehen.
+Führe den Befehl `npm run start` aus. Du kannst nun auf das Spiel unter `http://localhost:8080/` im Webbrowser zugreifen.
  
 ## Aufgaben
 

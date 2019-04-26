@@ -1,0 +1,26 @@
+{
+  "name": "breakout",
+  "version": "1.0.0",
+  "description": "Ein klassisches Breakout Spiel mit Javascript für die Develop<her> Javascript Session",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node node_modules/live-server/live-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medcross/breakout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medcross/breakout/issues"
+  },
+  "homepage": "https://github.com/medcross/breakout#readme"
+}

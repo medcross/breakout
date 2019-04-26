@@ -19,7 +19,7 @@ const sinnDesLebens = 42; // Ganzzahl
 const pi = 3.14159265359; // Dezimalzahl
 const ersterWochentag = "Montag"; // Zeichenfolge
 const wahr = true; // Boolscher Wert (wahr / falsch)
-const falsch = false // Boolscher Wert (wahr / falsch)
+const falsch = false; // Boolscher Wert (wahr / falsch)
 ```
 Aus den Beispielen fällt auf, dass **Werte unterschiedlicher Typen** zwischengespeichert werden können.
 
@@ -28,7 +28,7 @@ Es können ebenfalls mehrere Werte zusammengefasst werden. Diese Art von Typ nen
 ```javascript
 const config = {
     width: 800,
-    height: 600,
+    height: 600
 };
 ```
 
@@ -54,16 +54,18 @@ const simone = {
 };
 
 console.log("Simones Berufsbezeichnung lautet:");
-console.log("")
+console.log(simone.beruf.bezeichnung);
 ```
 
 ### Aufgabe
 
-**Versuche nun die Höhe und Breite des Spielfelds innerhalb einer Konstanten feszulegen.** Du kannst auf Konstanten ebenfalls im JSON verweisen.
+**Versuche nun die Höhe und Breite des Spielfelds innerhalb einer Konstanten feszulegen.** Du kannst Konstanten ebenfalls im JSON als Wert einsetzen.
 
-Achte beim Anlegen der Variable darauf, dass du nicht den **Gültigkeitsbereich** *(engl. Scope)* der Konstante verlässt. Außerhalb des Gültigkeitsbereichs kann auf die Variable später nicht zugegriffen werden.
+Achte beim Anlegen der Konstante darauf, dass du nicht den **Gültigkeitsbereich** *(Scope)* der Konstante verlässt. Außerhalb des Gültigkeitsbereichs kann auf die Konstante später nicht zugegriffen werden.
 
-Ein Gültigkeitsbereich wird durch einen **Block** defiiniert. Ein Block kennzeichnet sich durch zwei geschweifte Klammern. Beispielsweise handelt es sich hierbei um einen Block:
+Ein Gültigkeitsbereich wird durch einen **Block** defiiniert. Ein Block kennzeichnet sich, wie das JSON, durch zwei geschweifte Klammern.
+
+**Beispiel für den Scope einer Konstante:**
 
 ```javascript
 const wert0 = 0;
@@ -106,13 +108,13 @@ const config = {
 
 </details>
 
-## Schritt 2 - Hintergrundfarbe auf blau setzen
+## Schritt 2 - Hintergrundfarbe des Spielfelds ändern
 
 Das Spielfeld soll nun einen schwarzgrünen Hintergrund bekommen.
 
 ### Aufgabe
 
-Füge den Wert `backgroundColor` zur Konstanten `config` hinzu und setze disen auf den Wert `"#31403d"`. Der Wert ist als Zeichenfolge angegeben und hinter ihm verbirgt sich **ein Farbcode**. Solche Farbcodes werden besonders häufig in der Webentwicklung verwendet.
+Füge den Wert `backgroundColor` zur Konstanten `config` hinzu und setze disen auf den Wert `"#31403d"`. Der Wert ist als Zeichenfolge angegeben und hinter ihm verbirgt sich ein Farbcode. Solche Farbcodes werden besonders häufig in der Webentwicklung verwendet.
 
 <details>
 <summary>Lösung</summary>
@@ -143,7 +145,7 @@ Du musst Phaser sagen, dass es das Spiel anhan der zuvor angelegten `config` ers
 
 Ein **Objekt** umfasst mehrere **Eigenschaften**. Eine Eigenschaft ist, ähnlich wie die Konstante, eine Verbindung von einem Namen und einem Wert. Außerdem kann eine Eigenschaft eine Funktion sein. Diese wird aufgrund der Bindung an das Objekt als **Methode** spezifiziert.
 
-Ein Objekt wird mit dem Schlüsselwort `new` erstellt und wird z.B. einer Konstanten zugewisen. Dabei kann es bei der Erstellung Parameter annehmen (einzelne Werte). Mit Parametern kann man unterschiedliche Ausführungen eines Objektes erstellen.
+Ein Objekt wird mit dem Schlüsselwort `new` erstellt und kann z.B. einer Konstanten zugewisen werden. Bei der Erstellung eines Objektes können Parameter übergeben werden. Mit Parametern kann man unterschiedliche Ausführungen eines Objektes erstellen.
 
 Beim Erstellen eines Objekts wird der **Konstruktor einer Klasse** aufgerufen.
 
@@ -151,9 +153,9 @@ Eine **Klasse** definiert die Eigenschaften eines **Objekts**. Sie ist die Defin
 
 *Zusammenfassend definiert die Klasse Eigenschaften eines Objekts. Methoden sind Funktionen, die zu einer bestimmten Klasse gehören. Wenn man eine Klasse mit `new` erstellt, so entsteht ein Objekt. Auf das Objekt kann zur Laufzeit des Programms zugegriffen werden.*
 
-*Da du in der Session keine eigenen Klassen programmieren musst, reicht es zu wissen, wie du eine Instanz der Klasse, das Objekt, erstellen kannst.*
+*Da du in der Session keine eigenen Klassen programmieren musst, reicht es zu wissen, wie du eine Instanz der Klasse (ein Objekt) erstellen kannst.*
 
-**Beispiel für das Erstellen eines Objekts:**
+**Beispiel für das Instanziieren einer Klasse:**
 
 ```javascript
 // Ein VW, welcher 19999.99 EUR kostet, wird erstellt.

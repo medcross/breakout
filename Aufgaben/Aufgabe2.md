@@ -26,9 +26,9 @@ function sayHello() {
 }
 ```
 
-*Im Beispiel sind Textanmerkungen zu erkennen. In Javascript kann man seinen Code mit Hilfe von Anmerkungen dokumentieren. Dabei wird zwischen dem **mehrzeiligen Blockkommentar ( \*/ ... \*/ )** und dem **einzeiligen Kommentar ( // ... )** unterschieden.*
+*Im Beispiel sind Textanmerkungen zu erkennen. In Javascript kann man seinen Code mit Hilfe von Anmerkungen dokumentieren. Dabei wird zwischen dem **mehrzeiligen Blockkommentar (\*/ ... \*/)** und dem **einzeiligen Kommentar (// ...)** unterschieden.*
 
-Alle Texturen befinden sich zusammengefasst in einem Atlas, welcher das Laden vereinfacht. Ein Texturatlas umfasst mehrere, aneinandergereihte Bildtexturen. Um Phase zu sagen, wie die Bilder aneinandergereiht sind, ist eine Datei vom Typ JSON hinterlegt. Das JSON enthält alle benötigten Informationen.
+Alle Texturen befinden sich zusammengefasst in einem Atlas, welcher das Laden vereinfacht. Ein Texturatlas umfasst mehrere, aneinandergereihte Bildtexturen. Um Phaser zu sagen, wie die Bilder aneinandergereiht sind, ist eine Datei vom Typ `.json` hinterlegt. Das JSON enthält alle benötigten Informationen.
 
 Das Framework bietet uns behilfliche **Klassen** an, welche entsprechende **Methoden** bereitstellen. So gibt es auch eine Klasse zum Laden von Ressourzen wie u.a. Texturen. Dies ist die `Phaser.Loader`-Klasse. Diese Klasse unterteilt sich wiederum in meherere Methoden.
 
@@ -42,7 +42,7 @@ Die Methode ist [hier](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.
 
 *`textureXhrSettings` und `atlasXhrSettings` sind optional und zudem fortgeschrittene Parameter, die du auslassen kannst.*
 
-**Der Parameter Key** kann beliebig benannt werden. Der Key wird benutzt, um der Ressource einen Namen zu geben. Unter dem Namen kann auf diese später wieder zugegriffen werden. **Es macht also Sinn, den Key des Atlas als Konstante abzuspeichern.**
+**Der Parameter `key`** kann beliebig benannt werden. Der `key` wird benutzt, um der Ressource einen Namen zu geben. Unter dem Namen kann auf diese später wieder zugegriffen werden. **Es macht also Sinn, den Key des Atlas als Konstante abzuspeichern.**
 
 <details>
 <summary>Lösung</summary>
@@ -82,7 +82,7 @@ Der Schläger soll zusätzlich physikalische Eigenschaften besitzen, da er spät
 
 Arcade ist eine simple Physikeinstellung, bei der lediglich auf die Kollision zweier Spielobjekte geprüft werden kann. Beispielsweise, ob der Schläger den Ball berührt.
 
-Um die Klasse zu instanziieren müssen wir die Physik-Einstellungen im `config`-Objekt festlegen. Füge dem JSON daher folgende Eigenschaft hinzu:
+Um die Klasse von Phaser instanziieren zu lassen, müssen wir die Physik-Einstellungen im `config`-Objekt festlegen. Füge dem JSON daher folgende Eigenschaft hinzu:
 
 ```javascript
 physics: {
@@ -116,7 +116,7 @@ const config = {
 
 Versuche nun den Schläger am unteren Bildschirmrand einzuzeichen. Dafür musst die Klasse `Phaser.Physics.Arcade.Image` instanziieren und im Konstruktor die richtigen Parameter mitgeben.
 
-Glücklicherweise bietet uns Phaser mit der Klasse `Phaser.Physics.Arcade.Factory` eine große Hilfe an. Eine **Factory** Klasse ähnelt einem Konstruktor und kann ebenfalls Klassen instanziieren. Allerdings ruft 
+Glücklicherweise bietet uns Phaser mit der Klasse `Phaser.Physics.Arcade.Factory` eine große Hilfe an. Eine **Factory** Klasse ähnelt einem Konstruktor und kann ebenfalls Klassen instanziieren.
 
 Im Folgenden sollst du eine solche Methode verwenden. Die Methode instanziiert das [`Phaser.Physics.Arcade.Image`](https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.Image.html) für dich, ohne dass du dich mit komplizierten Parametern rumschlagen musst. 
 

@@ -158,6 +158,12 @@ function hitBrick(ball, brick) {
 
 Wenn alle Mauersteine entfernt sind, soll ein Text `"Du hast gewonnen!"` erscheinen.
 
+Der Ball muss ebenfalls angehalten werden, da das Spiel beendet ist. Nutze dafür die folgende Methode:
+
+```javascript
+this.ball.setVelocity(0, 0);
+```
+
 <details>
 <summary>Lösung</summary>
 
@@ -168,6 +174,8 @@ function hitBrick(ball, brick) {
     this.remainingBricksText.text = `Anzahl zu zerstörender Steine: ${remainingBricks}`;
 
     if (remainingBricks === 0) {
+        this.ball.setVelocity(0, 0);
+        
         this.add.text(
             gameWidth / 2 - 100,
             gameHeight / 2,

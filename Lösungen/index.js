@@ -78,8 +78,28 @@ function create() {
     }
 
     this.input.on("pointerup", startGame, this);
-
     this.input.on("pointermove", movePaddle, this);
+
+    this.particles = this.add.particles(atlasKey, "particle1");
+    const emitterConfig = {
+        speed: {
+            min: 10,
+            max: 50 
+        },
+        quantity: { 
+            min: 5,
+            max: 10 
+        },
+        alpha: { 
+            start: 1,
+            end: 0 
+        },
+        gravityY: 200,
+        lifespan: 800,
+        blendMode: "SCREEN",
+        on: false
+    }
+    this.particles.createEmitter(emitterConfig);
 }
 
 function update() {
@@ -128,7 +148,11 @@ function hitBrick(ball, brick) {
     remainingBricks--;
     this.remainingBricksText.text = `Anzahl zu zerstörender Steine: ${remainingBricks}`;
 
-        if (remainingBricks === 0) {
+    this.particles.emitParticleAt(brick.x, brick.y);
+
+    if (remainingBricks === 0) {
+        this.ball.setVelocity(0, 0);
+
         this.add.text(
             gameWidth / 2 - 100,
             gameHeight / 2,

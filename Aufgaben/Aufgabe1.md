@@ -194,7 +194,7 @@ const game = new Phaser.Game(config);
 
 Öffne doch mal die `index.html` in einem Web-Browser deiner Wahl.
 
-Wenn du alles richtig gemacht hast, solltest du einen hellblauen Kasten sehen.
+Wenn du alles richtig gemacht hast, solltest du einen schwarzgrünen Kasten auf dunklem Hintergrund sehen.
 
 <details>
 <summary>Gesamtlösung</summary>

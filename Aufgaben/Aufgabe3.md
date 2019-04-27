@@ -65,15 +65,17 @@ Aus diesem Grund bietet uns javascript `for`-Schleifen an. `for`-Schleifen zähl
 
 ```javascript
 // Die For-Schleife zählt von 0 bis 100 in 2er Schritten
-for (let i = 0; i <= 100; i + 1) {
+for (let i = 0; i <= 100; i++) {
     console.log(i);
 }
 
 // Die For-Schleife zählt von 0 bis 9 in 1er Schritten
-for (let i = 0; i < 10; i + 1) {
+for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 ```
+
+**`++`** erhöht die Variable i um eine Einheit.
 
 Auffällig sind die **Vergleichsoperatoren** `<` und `<=`. Diese bilden die Abbruchbedingung für die Schleife. Beispielsweise: Zähle bis die Variable `i` kleiner (`<`) als 10 ist.
 
